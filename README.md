@@ -1,2 +1,2 @@
 # Guitar_site
-Applied html, scss, grid, flex box, jquery, adaptive layout
+Applied html, scss, grid, flex box, jquery, BEM, adaptive layout
