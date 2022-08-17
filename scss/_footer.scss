@@ -1,0 +1,133 @@
+.footer {
+  background: $color-7;
+
+  &__inner {
+    padding: 80px 0 45px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(18, 18, 18, 0.6);  
+  }
+
+  &__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    grid-auto-columns: 1fr;
+    justify-items: center;
+    grid-gap: 50px 10px;
+    margin-bottom: 80px;
+  }
+
+  &__column-title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.5;
+    color: $color-2;
+
+    & + *{
+      margin-top: 20px;
+    }
+  }
+
+  &__social {
+  }
+
+  &__copy {
+    text-align: center;
+  }
+}
+
+.footer-contact {
+
+  &__logo + *{
+    margin-top: 30px;
+  }
+}
+
+.box-contact {
+
+  &__inner{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    &:hover a{
+      text-decoration: underline;
+    }
+  }
+
+  &__inner +  &__inner{
+    margin-top: 20px;
+}
+}
+
+.footer-list {
+
+  &__item{
+    transition: all .3s;
+  
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
+  &__item + &__item{
+    margin-top: 16px;
+  }
+
+  &__link {
+    line-height: 1.5;
+  }
+}
+
+.social-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__item {
+    padding-left: 10px;
+
+    &:hover > .social-list__link > svg{
+      transform: scale(1.1);
+    }
+    &:hover > .social-list__link > svg > path{
+      fill: orangered;
+    }
+  }
+
+  &__item + &__item{
+   margin-left: 32px;
+  }
+
+  &__link svg{
+    transition: all .3s;
+  }
+}
+// =====================
+@media (max-width: 890px) {
+  .social-list__item{
+    padding-left: 0;
+  }
+ .footer__container{
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: 
+                      'footer-contact footer__social';
+ }
+ .footer-contact{
+  grid-area: footer-contact;
+ }
+ .footer__social{
+  grid-area: footer__social;
+ }
+}
+@media (max-width: 479.98px){
+  .footer__container{
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: 
+                      'footer-contact'
+                      'footer__social';
+  }
+}

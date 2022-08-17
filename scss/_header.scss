@@ -1,0 +1,156 @@
+.header {
+  position: absolute;
+  z-index: 50;
+  width: 100%;
+
+  &__inner {
+    min-height: 124px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo{
+    z-index: 5;
+  }
+
+  &__logo + *{
+    margin-left: 131px;
+  }
+}
+
+.menu {
+  padding: 62px 0;
+
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item + &__item{
+    margin-left: 56px;
+  }
+
+  &__link {
+    display: block;
+    color: rgba(18, 18, 18, 0.4);
+    transition: all .3s;
+
+    &:hover{
+      text-decoration: underline;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.btn-mobile {
+  display: none;
+  width: 40px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  right: 20px;
+
+  &__line{
+    display: none;
+    width: 40px;
+    height: 2px;
+    background: $color-4;
+    position: relative;
+
+    &::after,
+    &::before{
+      content: '';
+      width: 40px;
+      height: 2px;
+      background: $color-4;
+      position: absolute;
+      right: 0;
+      left: 0;
+    }
+
+    &::after{
+      top: 12px;
+    }
+
+    &::before{
+      bottom: 12px;
+    }
+  }
+}
+// ==========================
+@media (max-width: 590px){
+  .btn-mobile{
+    display: block;
+    top: 15px;
+    
+    &:before{
+      content: '';
+      width: 50px;
+      height: 40px;
+      background: $color-5;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &__line{
+      display: block;
+    }
+  }
+  .menu__list{
+    display: block;
+    transform: translateY(-200%);
+     position: absolute;
+     background: $color-9;
+     right: 0;
+     left: 0;
+     top: 0;
+     bottom: -1000px;
+     padding-top: 50px;
+     transition: all .5s;
+  }
+  .menu__list.active{
+    transform: translateY(0);
+  }
+  .btn-mobile__line.active{
+    background-color: transparent;
+  }
+
+  .btn-mobile__line.active::after{
+   transform: rotate(45deg);
+   top: 0;
+   transition: top .15s linear, transform .15s ease-in .15s;
+  }
+
+  .btn-mobile__line.active::before{
+    transform: rotate(-45deg);
+    top: 0;
+    transition: top .15s linear, transform .15s ease-in .15s;
+  }
+
+  .menu__item + .menu__item{
+    margin-left: 0;
+  }
+
+  .menu__link{
+    display: block;
+    padding: 20px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    color: $color-2;
+  }
+
+  .header__inner{
+    min-height: 60px;
+  }
+
+  .menu{
+    padding: 30px 0; 
+  }
+}
